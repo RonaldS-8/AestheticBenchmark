@@ -1,0 +1,35 @@
+# Frozen Qwen3.5-4B vision tower + two score heads (aesthetic, technical).
+# The tower is the base model's, untouched; only the heads are trained.
+schema_version = "1.0"
+recipe = "qwen35-4b-tower-head"
+
+[tower]
+# 0-based blocks of the 24-block tower: outputs of blocks 6, 12, 18, 24,
+# each mean-pooled (4 x 1024), plus the merger output the LLM sees (2560).
+taps = [5, 11, 17, 23]
+# Same pixel budget as configs/eva-qwen35-4b-lora-r16.toml [preprocess]:
+# EVA images (at most ~640k pixels) keep their published size.
+min_pixels = 65536
+max_pixels = 1048576
+precision = "bf16"
+
+[head]
+hidden_dim = 256
+dropout = 0.1
+
+[loss]
+# Same loss as the ConvNeXt-T head (cnn_head/configs/convnext-t-ft.toml).
+mse_weight = 1.0
+plcc_weight = 1.0
+rank_weight = 0.3
+
+[train]
+# 3,256 train images / 16 = 203 steps per epoch; val scored every epoch.
+batch_size = 16
+epochs = 30
+warmup_ratio = 0.05
+weight_decay = 0.05
+max_grad_norm = 1.0
+
+[runtime]
+device = "cuda"

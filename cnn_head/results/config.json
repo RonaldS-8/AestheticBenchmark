@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "run_id": "convnext-t-ft-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "train_run_id": "convnext-t-ft-lr1e-4-s1",
+  "checkpoint": {
+    "path": "convnext-t-ft-lr1e-4-s1/best.pt",
+    "sha256": "49e177f9d6e93c52ddfda2e0375793e6373efd7b5ce5ad4ae7f8ce80666a1aad"
+  },
+  "device": "cuda",
+  "precision": "bf16"
+}

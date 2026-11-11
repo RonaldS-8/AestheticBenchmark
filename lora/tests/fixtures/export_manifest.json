@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "route": "lora_sft",
+  "export_id": "qwen-4b-lora-r16-q4-k-m",
+  "train_run_name": "qwen-4b-lora-r16",
+  "base_model": {
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "03e404fd168941cfed98f46654680130dd85968b"
+  },
+  "checkpoint_sha256": "ae1eae1d76e5b7c865c4122ce366a08025842566d2d96c75cc13e6353a73db0d",
+  "format": "gguf",
+  "quantization": "q4_k_m",
+  "runtime": "llama_cpp",
+  "runtime_version": "b6500",
+  "chat_template_sha256": "cc34ae0560a16721608a49c3de9f81380720651c1218f5a1f46ad8d129e487fa",
+  "preprocess": {"min_pixels": 200704, "max_pixels": 1003520},
+  "files": [
+    {
+      "path": "model-q4_k_m.gguf",
+      "sha256": "1cb1b7e0f8b96cee3445e317b8064d8805bf35c7dc7de82cddcb9f78d4c95e0e",
+      "role": "weights"
+    },
+    {
+      "path": "mmproj-f16.gguf",
+      "sha256": "2e1f8908b6e645f42f5c6c21ad2f09b17416ec38f6ec6c44e5be71a74563d53d",
+      "role": "vision_projector"
+    }
+  ],
+  "created_at": "2026-11-28T15:00:00+08:00"
+}

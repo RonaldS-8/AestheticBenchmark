@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "prefix": "qwen35-4b-tower-head",
+  "created_at": "2026-11-10T06:51:36.204354Z",
+  "recipe": "qwen35-4b-tower-head",
+  "groups": [
+    {
+      "lr": 0.0001,
+      "run_ids": [
+        "qwen35-4b-tower-head-lr1e-4-s1",
+        "qwen35-4b-tower-head-lr1e-4-s2",
+        "qwen35-4b-tower-head-lr1e-4-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.7712129949009638,
+        0.7631008571925721,
+        0.7709868448600874
+      ],
+      "mean": 0.7684335656512079
+    },
+    {
+      "lr": 0.0003,
+      "run_ids": [
+        "qwen35-4b-tower-head-lr3e-4-s1",
+        "qwen35-4b-tower-head-lr3e-4-s2",
+        "qwen35-4b-tower-head-lr3e-4-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.7730054496550758,
+        0.7643161295456234,
+        0.775508748396625
+      ],
+      "mean": 0.7709434425324414
+    },
+    {
+      "lr": 0.001,
+      "run_ids": [
+        "qwen35-4b-tower-head-lr1e-3-s1",
+        "qwen35-4b-tower-head-lr1e-3-s2",
+        "qwen35-4b-tower-head-lr1e-3-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.7691396459806685,
+        0.7652778215296694,
+        0.7642821300794318
+      ],
+      "mean": 0.7662331991965899
+    }
+  ],
+  "chosen_run_id": "qwen35-4b-tower-head-lr3e-4-s3",
+  "checkpoint": {
+    "path": "qwen35-4b-tower-head-lr3e-4-s3/best.pt",
+    "sha256": "18d96b2f91b8feea9308ea5ce5e1673d5c79a9567830814ce551df472c484de3"
+  }
+}

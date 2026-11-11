@@ -1,0 +1,8 @@
+# Aesthetic-head job. Versions equal the main repository's requirements.txt /
+# requirements-train.txt so both run on the same stack. Python 3.11-3.13.
+# Tests run in the main repository's .venv (pytest, pytest-cov from its
+# requirements-dev.txt).
+pydantic==2.13.4
+pillow==12.0.0
+torch==2.8.0
+torchvision==0.23.0

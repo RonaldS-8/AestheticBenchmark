@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "eval_fingerprint": "7925f174981fbae3c9f63b9e6d5e755b0b7aafebc2d9812154e0d050914a2c19",
+  "candidate_run_id": "lora-qwen-4b-r16-bf16",
+  "baseline_run_id": "b2-few-shot-qwen-4b",
+  "nas_run_id": "lora-qwen-4b-r16-q4-nas",
+  "thresholds": {
+    "min_overall_srcc_gain": 0.05,
+    "min_parse_success_rate": 0.99,
+    "max_nas_srcc_drop": 0.02,
+    "max_latency_p95_ms": 3000.0
+  },
+  "passed": true,
+  "failures": [],
+  "decided_at": "2026-12-01T10:00:00+08:00"
+}

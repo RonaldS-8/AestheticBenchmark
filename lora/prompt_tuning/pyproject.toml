@@ -1,0 +1,6 @@
+# Test settings for this folder only; run from here: cd prompt_tuning && pytest
+# Lint and formatting follow the main repository (ruff / black from its root).
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "--cov=ptune --cov-branch --cov-report=term-missing --cov-fail-under=80"

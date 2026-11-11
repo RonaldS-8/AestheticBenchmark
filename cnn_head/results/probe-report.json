@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0",
+  "run_id": "probe-native-v1",
+  "created_at": "2026-11-09T12:28:36.540962+08:00",
+  "items_sha256": "1fbc265ed0de2f5513913702a18f610b731780c945669087402191559e9d0092",
+  "preprocess": "native_rgb_imagenet_norm",
+  "n_train": 3256,
+  "n_val": 407,
+  "limited": false,
+  "folds": 5,
+  "alphas": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0,
+    100000.0,
+    1000000.0
+  ],
+  "bootstrap_samples": 1000,
+  "seed": 42,
+  "backbones": [
+    {
+      "backbone": "resnet50",
+      "weights_sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+      "n_images": 3663,
+      "latency_p50_ms": 476.32560040801764,
+      "latency_p95_ms": 723.2685000635684
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "weights_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+      "n_images": 3663,
+      "latency_p50_ms": 145.35810006782413,
+      "latency_p95_ms": 217.59549994021654
+    },
+    {
+      "backbone": "convnext_tiny",
+      "weights_sha256": "983f1562536e84ff750a1576fb08e54de751dbf2e17c0d8a4a13704341fdcd3d",
+      "n_images": 3663,
+      "latency_p50_ms": 405.67580005154014,
+      "latency_p95_ms": 680.5930999107659
+    }
+  ],
+  "results": [
+    {
+      "backbone": "resnet50",
+      "layers": "all",
+      "dimension": "aesthetic",
+      "feature_dim": 3840,
+      "alpha": 10000.0,
+      "cv_srcc": 0.7033064267650733,
+      "val": {
+        "srcc": 0.6839788841140259,
+        "plcc": 0.6951136987297847,
+        "mae_1_5": 0.22720495542313857
+      },
+      "val_srcc_ci95": [
+        0.6216553945817477,
+        0.7377153047076622
+      ]
+    },
+    {
+      "backbone": "resnet50",
+      "layers": "all",
+      "dimension": "technical",
+      "feature_dim": 3840,
+      "alpha": 1000.0,
+      "cv_srcc": 0.641323189295951,
+      "val": {
+        "srcc": 0.6645511552342347,
+        "plcc": 0.7078519493712563,
+        "mae_1_5": 0.20782819614756745
+      },
+      "val_srcc_ci95": [
+        0.5999405104089488,
+        0.7181490980402302
+      ]
+    },
+    {
+      "backbone": "resnet50",
+      "layers": "last",
+      "dimension": "aesthetic",
+      "feature_dim": 2048,
+      "alpha": 10000.0,
+      "cv_srcc": 0.6521633582874005,
+      "val": {
+        "srcc": 0.6158196316703335,
+        "plcc": 0.6096887736047271,
+        "mae_1_5": 0.24953736067156954
+      },
+      "val_srcc_ci95": [
+        0.54455040644876,
+        0.6798331711235888
+      ]
+    },
+    {
+      "backbone": "resnet50",
+      "layers": "last",
+      "dimension": "technical",
+      "feature_dim": 2048,
+      "alpha": 10000.0,
+      "cv_srcc": 0.5626351678922796,
+      "val": {
+        "srcc": 0.5556881421603125,
+        "plcc": 0.5876027140230209,
+        "mae_1_5": 0.2323606343518344
+      },
+      "val_srcc_ci95": [
+        0.48162468672490927,
+        0.6240714464743279
+      ]
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "layers": "all",
+      "dimension": "aesthetic",
+      "feature_dim": 1456,
+      "alpha": 1000.0,
+      "cv_srcc": 0.6775525498599466,
+      "val": {
+        "srcc": 0.6626629981834716,
+        "plcc": 0.6830799761600088,
+        "mae_1_5": 0.22864568343840583
+      },
+      "val_srcc_ci95": [
+        0.5984847359193195,
+        0.718191385585231
+      ]
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "layers": "all",
+      "dimension": "technical",
+      "feature_dim": 1456,
+      "alpha": 10000.0,
+      "cv_srcc": 0.6051953172231971,
+      "val": {
+        "srcc": 0.6287587565174491,
+        "plcc": 0.6549774985819871,
+        "mae_1_5": 0.21906728577527623
+      },
+      "val_srcc_ci95": [
+        0.5591838506413748,
+        0.6865111357673562
+      ]
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "layers": "last",
+      "dimension": "aesthetic",
+      "feature_dim": 1280,
+      "alpha": 1000.0,
+      "cv_srcc": 0.6473202070126228,
+      "val": {
+        "srcc": 0.629469601903618,
+        "plcc": 0.6499775781305135,
+        "mae_1_5": 0.24005505019968867
+      },
+      "val_srcc_ci95": [
+        0.5631949503081002,
+        0.6918634670651063
+      ]
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "layers": "last",
+      "dimension": "technical",
+      "feature_dim": 1280,
+      "alpha": 10000.0,
+      "cv_srcc": 0.5633028126427606,
+      "val": {
+        "srcc": 0.5738061371203301,
+        "plcc": 0.6060921339801348,
+        "mae_1_5": 0.23040853447110693
+      },
+      "val_srcc_ci95": [
+        0.5000299968121755,
+        0.6411634473722844
+      ]
+    },
+    {
+      "backbone": "convnext_tiny",
+      "layers": "all",
+      "dimension": "aesthetic",
+      "feature_dim": 1440,
+      "alpha": 1000.0,
+      "cv_srcc": 0.6911159107871255,
+      "val": {
+        "srcc": 0.6977914514656092,
+        "plcc": 0.7190961459825085,
+        "mae_1_5": 0.2252366150304517
+      },
+      "val_srcc_ci95": [
+        0.6409672281969907,
+        0.746105099468252
+      ]
+    },
+    {
+      "backbone": "convnext_tiny",
+      "layers": "all",
+      "dimension": "technical",
+      "feature_dim": 1440,
+      "alpha": 10000.0,
+      "cv_srcc": 0.6150986171675152,
+      "val": {
+        "srcc": 0.6791851257859037,
+        "plcc": 0.7155041043953008,
+        "mae_1_5": 0.20842322348557504
+      },
+      "val_srcc_ci95": [
+        0.6247137547744739,
+        0.7334813814684846
+      ]
+    },
+    {
+      "backbone": "convnext_tiny",
+      "layers": "last",
+      "dimension": "aesthetic",
+      "feature_dim": 768,
+      "alpha": 1000.0,
+      "cv_srcc": 0.6702440727718699,
+      "val": {
+        "srcc": 0.6787430255131717,
+        "plcc": 0.7078886377154139,
+        "mae_1_5": 0.2277086274052582
+      },
+      "val_srcc_ci95": [
+        0.617749310086103,
+        0.7348222553195423
+      ]
+    },
+    {
+      "backbone": "convnext_tiny",
+      "layers": "last",
+      "dimension": "technical",
+      "feature_dim": 768,
+      "alpha": 10000.0,
+      "cv_srcc": 0.5752884860289718,
+      "val": {
+        "srcc": 0.6399208070756255,
+        "plcc": 0.6843573358985461,
+        "mae_1_5": 0.2194688042054721
+      },
+      "val_srcc_ci95": [
+        0.5768724042849316,
+        0.7035761230623736
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "finished_at": "2026-11-09T16:50:19.192556+08:00",
+  "global_step": 612,
+  "train_loss": 0.27060986782600677,
+  "selection_metric": "srcc_mean",
+  "best_metric": 0.8063741455160467,
+  "best_checkpoint": "outputs/eva-qwen35-4b-lora-r16/checkpoint-510"
+}

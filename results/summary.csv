@@ -1,0 +1,5 @@
+approach,report,split,n_items,aesthetic_srcc,aesthetic_plcc,aesthetic_mae,technical_srcc,technical_plcc,technical_mae,latency_p50_ms,latency_p95_ms
+prompt-baseline,results/prompt-baseline/report-eval.json,eval,407,0.4896,0.5073,0.5523,0.5614,0.6017,0.7337,1056.1,1119.9
+lora-r16,lora/results/report.json,eval,407,0.8103,0.8339,0.1735,0.7643,0.789,0.1656,1044.0,1098.3
+cnn-head,cnn_head/results/report.json,eval,407,0.7683,0.7747,0.1967,0.7224,0.7402,0.1876,6.6,1280.2
+tower-head,tower_head/results/report.json,eval,407,0.8036,0.8298,0.1785,0.7564,0.7798,0.1718,30.3,44.2

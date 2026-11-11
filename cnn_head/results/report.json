@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "run_id": "convnext-t-ft-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "created_at": "2026-11-10T05:52:20.383418Z",
+  "n_items": 407,
+  "n_parsed": 407,
+  "parse_success_rate": 1.0,
+  "metrics": {
+    "aesthetic": {
+      "srcc": 0.7682982430599157,
+      "plcc": 0.7747310220974166,
+      "mae_1_5": 0.19669697021090718
+    },
+    "technical": {
+      "srcc": 0.7223979959524092,
+      "plcc": 0.7402427827080825,
+      "mae_1_5": 0.18760403602656334
+    }
+  },
+  "metric_errors": {},
+  "latency_p50_ms": 6.630782998399809,
+  "latency_p95_ms": 1280.1694869995117
+}

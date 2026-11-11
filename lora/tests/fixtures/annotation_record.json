@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "image_id": "photo_000123",
+  "image_path": "images/photo_000123.jpg",
+  "image_sha256": "3f0c9d5e8a1b2c4d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5",
+  "category": "portrait",
+  "source": {
+    "site": "example_site",
+    "site_photo_id": "889123",
+    "license_type": "cc0"
+  },
+  "guideline_version": "v1",
+  "annotations": [
+    {
+      "annotator": "A01",
+      "aesthetic": 4,
+      "technical": 3,
+      "overall": 4,
+      "reason": "逆光氛围好，主体对焦偏软",
+      "highlights": ["lighting"],
+      "issues": ["focus"],
+      "annotated_at": "2026-11-10T09:00:00+08:00"
+    },
+    {
+      "annotator": "A02",
+      "aesthetic": 4,
+      "technical": 2,
+      "overall": 3,
+      "reason": "构图干净，暗部噪点明显",
+      "highlights": ["composition"],
+      "issues": ["noise"],
+      "annotated_at": "2026-11-10T09:05:00+08:00"
+    },
+    {
+      "annotator": "A03",
+      "aesthetic": 5,
+      "technical": 3,
+      "overall": 4,
+      "reason": "色调温暖，轻微失焦",
+      "highlights": ["color"],
+      "issues": ["focus"],
+      "annotated_at": "2026-11-10T09:10:00+08:00"
+    }
+  ],
+  "mean": {"aesthetic": 4.33, "technical": 2.67, "overall": 3.67}
+}

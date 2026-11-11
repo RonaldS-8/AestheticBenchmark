@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "route": "head",
+  "export_id": "head-convnext-swin-human-fp16",
+  "train_run_name": "head-convnext-swin-human",
+  "checkpoint_sha256": "ae1eae1d76e5b7c865c4122ce366a08025842566d2d96c75cc13e6353a73db0d",
+  "format": "onnx",
+  "quantization": "fp16",
+  "runtime": "onnxruntime",
+  "runtime_version": "1.22.0",
+  "views": {
+    "aesthetic": {
+      "backbone": {
+        "model_id": "facebook/convnext-tiny-224",
+        "revision": "03e404fd168941cfed98f46654680130dd85968b"
+      },
+      "size": 224
+    },
+    "technical": {
+      "backbone": {
+        "model_id": "microsoft/swin-tiny-patch4-window7-224",
+        "revision": "03e404fd168941cfed98f46654680130dd85968b"
+      },
+      "grid": 7,
+      "patch": 32
+    }
+  },
+  "files": [
+    {
+      "path": "aesthetic-head-fp16.onnx",
+      "sha256": "1cb1b7e0f8b96cee3445e317b8064d8805bf35c7dc7de82cddcb9f78d4c95e0e",
+      "role": "weights"
+    }
+  ],
+  "created_at": "2026-11-28T15:00:00+08:00"
+}

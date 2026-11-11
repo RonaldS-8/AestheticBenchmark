@@ -1,0 +1,2 @@
+# Shell scripts run on the Linux cloud machine; keep LF on every checkout.
+*.sh text eol=lf

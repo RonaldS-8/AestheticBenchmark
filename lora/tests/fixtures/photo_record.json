@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "example_site-20261102-000001",
+  "source": {
+    "site": "example_site",
+    "site_photo_id": "889123",
+    "page_url": "https://photos.example.com/p/889123",
+    "image_url": "https://img.example.com/889123/large.jpg",
+    "author": "some_photographer",
+    "license": {
+      "license_type": "cc0",
+      "training_allowed": true,
+      "commercial_allowed": true,
+      "terms_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "verified_by": "A01",
+      "verified_at": "2026-11-02"
+    }
+  },
+  "signals": {
+    "views": 15230,
+    "likes": 812,
+    "favorites": 97,
+    "comments": null,
+    "rating": {"mean": 7.4, "count": 120, "scale_min": 1, "scale_max": 10}
+  },
+  "site_tags": ["portrait", "backlight"],
+  "image_id": "photo_000123",
+  "image": {
+    "path": "images/photo_000123.jpg",
+    "sha256": "3f0c9d5e8a1b2c4d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5",
+    "format": "jpeg",
+    "width": 4000,
+    "height": 6000,
+    "size_bytes": 5242880
+  },
+  "downloaded_at": "2026-11-02T10:15:00+08:00"
+}

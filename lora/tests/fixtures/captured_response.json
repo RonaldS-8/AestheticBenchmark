@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "example_site-20261102-000001",
+  "site": "example_site",
+  "method": "GET",
+  "url": "https://api.example.com/v1/photos?page=1",
+  "status_code": 200,
+  "content_type": "application/json",
+  "captured_at": "2026-11-02T10:00:00+08:00",
+  "body_path": "raw/example_site/example_site-20261102-000001.json",
+  "body_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "body_size": 0
+}

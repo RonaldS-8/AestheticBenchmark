@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "prefix": "convnext-t-ft",
+  "created_at": "2026-11-10T05:52:18.236081Z",
+  "recipe": "convnext-t-ft",
+  "groups": [
+    {
+      "backbone_lr": 0.00001,
+      "run_ids": [
+        "convnext-t-ft-lr1e-5-s1",
+        "convnext-t-ft-lr1e-5-s2",
+        "convnext-t-ft-lr1e-5-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.6979812552219877,
+        0.6924592178193778,
+        0.6893644560702046
+      ],
+      "mean": 0.6932683097038567
+    },
+    {
+      "backbone_lr": 0.00003,
+      "run_ids": [
+        "convnext-t-ft-lr3e-5-s1",
+        "convnext-t-ft-lr3e-5-s2",
+        "convnext-t-ft-lr3e-5-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.6933318941251863,
+        0.6973885133649335,
+        0.7001364772708873
+      ],
+      "mean": 0.6969522949203357
+    },
+    {
+      "backbone_lr": 0.0001,
+      "run_ids": [
+        "convnext-t-ft-lr1e-4-s1",
+        "convnext-t-ft-lr1e-4-s2",
+        "convnext-t-ft-lr1e-4-s3"
+      ],
+      "best_val_srcc_mean": [
+        0.7283371740059739,
+        0.7237325229784879,
+        0.7266368972023013
+      ],
+      "mean": 0.7262355313955876
+    }
+  ],
+  "chosen_run_id": "convnext-t-ft-lr1e-4-s1",
+  "checkpoint": {
+    "path": "convnext-t-ft-lr1e-4-s1/best.pt",
+    "sha256": "49e177f9d6e93c52ddfda2e0375793e6373efd7b5ce5ad4ae7f8ce80666a1aad"
+  }
+}

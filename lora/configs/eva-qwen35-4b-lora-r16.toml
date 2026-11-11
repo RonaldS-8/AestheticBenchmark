@@ -1,0 +1,81 @@
+# EVA stage-one LoRA SFT (ADR-0009). Paths are relative to the repo root.
+# 3,256 train images / global batch 16 = 204 steps per epoch.
+schema_version = "1.0"
+route = "lora_sft"
+run_name = "eva-qwen35-4b-lora-r16"
+seed = 42
+prompt_id = "zero-shot-score@v2"
+# SHA-256 of chat_template.jinja at the pinned revision.
+chat_template_sha256 = "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+# EVA images are at most ~640k pixels, i.e. at most ~620 vision tokens.
+# Longest full sequence: 763 tokens with eva-dual-score@v1, 736 with
+# zero-shot-score@v2, 1119 with rubric-score@v2 (its rubric adds ~380), so
+# 1280 fits whichever prompt tuning picks. Over-long samples fail, never cut.
+max_seq_len = 1280
+
+[base_model]
+model_id = "Qwen/Qwen3.5-4B"
+revision = "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+
+[preprocess]
+# Keep EVA images at their published size; NAS inference must match.
+min_pixels = 65536
+max_pixels = 1048576
+
+[data]
+split_manifest = "data/manifests/eva/sft/v2/split-v2.json"
+split_version = "split-v2"
+eval_fingerprint = "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3"
+train_samples = "data/manifests/eva/sft/v2/train.jsonl"
+val_samples = "data/manifests/eva/sft/v2/val.jsonl"
+
+[lora]
+r = 16
+alpha = 32
+dropout = 0.05
+# Qwen3.5 is hybrid: full-attention layers use q/k/v/o_proj, Gated DeltaNet
+# layers use in_proj_qkv / in_proj_z / out_proj; every layer has the MLP.
+target_modules = [
+  "q_proj", "k_proj", "v_proj", "o_proj",
+  "in_proj_qkv", "in_proj_z", "out_proj",
+  "gate_proj", "up_proj", "down_proj",
+]
+freeze_vision = true
+
+[kernels]
+# 24 of 32 layers are Gated DeltaNet; without these kernels transformers
+# silently runs them in pure torch. Both are pinned in requirements-train.txt
+# (torch 2.8 has prebuilt wheels for all of them), so both are required.
+require_fla = true
+require_causal_conv1d = true
+
+[selection]
+# Keep the checkpoint with the best mean val SRCC of generated scores.
+metric = "srcc_mean"
+min_parse_rate = 0.95
+# Shared by checkpoint selection, LoRA eval and prompt tuning (ADR-0013).
+# A bare reply is ~15 tokens, a json code fence ~29; 64 leaves room for a
+# short lead-in sentence. Decoding stops at <|im_end|>, so unused room is free.
+max_new_tokens = 64
+
+[optim]
+learning_rate = 1e-4
+epochs = 3
+per_device_batch_size = 4
+grad_accum_steps = 4
+warmup_ratio = 0.05
+weight_decay = 0.0
+lr_scheduler = "cosine"
+max_grad_norm = 1.0
+
+[runtime]
+strategy = "single"
+num_gpus = 1
+precision = "bf16"
+attn_implementation = "flash_attention_2"
+gradient_checkpointing = true
+# Every half epoch (204 steps / 2): 6 evaluations, the last at step 612.
+# Each one decodes all 407 val images, so do not evaluate more often.
+save_steps = 102
+eval_steps = 102
+output_dir = "outputs/eva-qwen35-4b-lora-r16"

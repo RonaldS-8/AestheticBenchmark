@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "run_id": "qwen35-4b-tower-head-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "created_at": "2026-11-10T06:51:58.440991Z",
+  "n_items": 407,
+  "n_parsed": 407,
+  "parse_success_rate": 1.0,
+  "metrics": {
+    "aesthetic": {
+      "srcc": 0.803623349286767,
+      "plcc": 0.8297527042363402,
+      "mae_1_5": 0.17854043236528627
+    },
+    "technical": {
+      "srcc": 0.7564067351322054,
+      "plcc": 0.7798478153129701,
+      "mae_1_5": 0.17175963106553738
+    }
+  },
+  "metric_errors": {},
+  "latency_p50_ms": 30.277263998868875,
+  "latency_p95_ms": 44.18169400014449
+}

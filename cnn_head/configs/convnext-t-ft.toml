@@ -1,0 +1,37 @@
+# ConvNeXt-T fine-tuning on EVA at native resolution (frozen probe winner,
+# see docs/probe-native-v1.md). Seed and backbone LR come per run from
+# train.py; run.sh sweeps them. Train has 3,256 images: 203 steps per epoch.
+schema_version = "1.0"
+recipe = "convnext-t-ft"
+backbone = "convnext_tiny"
+
+[head]
+hidden_dim = 256
+dropout = 0.1
+
+[loss]
+# On z-scored targets, per score; rank weight as in FAST-VQA / DOVER.
+mse_weight = 1.0
+plcc_weight = 1.0
+rank_weight = 0.3
+
+[train]
+# Images keep their own size, so a batch runs one image at a time and the
+# loss is taken over the batch. About 0.4 GB of bf16 activations per image.
+batch_size = 16
+# Stage 1: heads only, backbone frozen (linear-probe-then-fine-tune).
+head_epochs = 3
+head_lr = 1e-3
+# Stage 2: everything; heads at backbone LR x 10.
+finetune_epochs = 10
+head_lr_multiplier = 10.0
+warmup_ratio = 0.05
+weight_decay = 0.05
+max_grad_norm = 1.0
+# Flips only: crops change composition, blur/noise/JPEG change the labels.
+hflip = true
+
+[runtime]
+device = "cuda"
+precision = "bf16"
+num_workers = 4

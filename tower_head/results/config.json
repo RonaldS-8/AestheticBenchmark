@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "run_id": "qwen35-4b-tower-head-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "train_run_id": "qwen35-4b-tower-head-lr3e-4-s3",
+  "checkpoint": {
+    "path": "qwen35-4b-tower-head-lr3e-4-s3/best.pt",
+    "sha256": "18d96b2f91b8feea9308ea5ce5e1673d5c79a9567830814ce551df472c484de3"
+  },
+  "tower_sha256": "ea8d5b62a513676329bd760d2491819a24d20b357a91199a79c15a8fd5ca9e52",
+  "device": "cuda",
+  "tower_precision": "bf16"
+}

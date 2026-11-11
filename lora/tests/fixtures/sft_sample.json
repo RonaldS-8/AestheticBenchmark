@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "sample_id": "sft-photo_000123-rubric-score-v1",
+  "image_id": "photo_000123",
+  "prompt_id": "rubric-score@v1",
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {"type": "text", "text": "你是照片美学评审，按评分细则从构图、光线、色彩、主体和对焦、曝光、噪点、模糊评价照片。"}
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {"type": "image", "image": "images/photo_000123.jpg"},
+        {"type": "text", "text": "请从美学、技术和总体三个维度为这张照片评分（1–5 分），并给出简短评语。只输出 JSON。"}
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {"type": "text", "text": "{\"aesthetic\": 4.3, \"technical\": 2.7, \"overall\": 3.7, \"comment\": \"逆光营造了温暖氛围，构图干净；主体对焦偏软，暗部噪点较明显。\"}"}
+      ]
+    }
+  ],
+  "comment_provenance": {
+    "method": "llm_merged",
+    "author": "Qwen/Qwen3-VL-8B-Instruct",
+    "reviewed_by": "A01"
+  }
+}

@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.test-tmp/
+.ruff_cache/
+.coverage
+
+# Crawled data, images and manifests stay out of git; keep the layout only.
+data/**
+!data/**/
+!data/**/.gitkeep
+
+# Training outputs and experiment tracking
+outputs/
+checkpoints/
+wandb/
+mlruns/
+
+# External code checked out at pinned commits (see ADR-0005)
+third_party/
+
+# Upload bundles from scripts/pack_for_cloud.py
+dist/

@@ -1,0 +1,15 @@
+# Environments and tool caches
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.test-tmp/
+.coverage
+
+# Data, weights and bundles never go into this repo; each approach folder
+# also ignores its own data/, models/, runs/ and dist/.
+*.pt
+*.safetensors
+*.gguf
+*.onnx
+*.tar

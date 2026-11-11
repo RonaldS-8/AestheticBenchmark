@@ -1,0 +1,7 @@
+# Copied EVA data, the extracted tower, run outputs and logs stay out of git.
+data/
+models/
+runs/
+dist/
+.venv/
+job.log

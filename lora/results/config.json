@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "run_id": "eva-qwen35-4b-lora-r16-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "model": {
+    "model_id": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "adapter": {
+    "train_run_name": "eva-qwen35-4b-lora-r16",
+    "path": "outputs/eva-qwen35-4b-lora-r16/adapter",
+    "weights_sha256": "137188774b3d281120dcd578043245f794b5dcd178003c9af4f5a0468f9583ac"
+  },
+  "prompt_id": "zero-shot-score@v2",
+  "chat_template_sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+  "preprocess": {
+    "min_pixels": 65536,
+    "max_pixels": 1048576
+  },
+  "max_new_tokens": 64,
+  "device": "cuda"
+}

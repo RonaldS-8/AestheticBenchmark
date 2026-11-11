@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "route": "vlm",
+  "run_id": "b1-rubric-qwen-4b",
+  "method": "b1_rubric",
+  "model": {
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "03e404fd168941cfed98f46654680130dd85968b"
+  },
+  "train_run_name": null,
+  "export_id": null,
+  "gguf": null,
+  "prompt_id": "rubric-score@v1",
+  "few_shot_k": 0,
+  "preprocess": {"min_pixels": 200704, "max_pixels": 1003520},
+  "chat_template_sha256": "cc34ae0560a16721608a49c3de9f81380720651c1218f5a1f46ad8d129e487fa",
+  "runtime": "transformers",
+  "device": "h100-80gb",
+  "eval_fingerprint": "7925f174981fbae3c9f63b9e6d5e755b0b7aafebc2d9812154e0d050914a2c19"
+}

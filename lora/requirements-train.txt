@@ -1,0 +1,26 @@
+# Training stack, installed into the shared .venv on every machine together
+# with requirements-dev.txt. Python 3.11-3.13. The two CUDA kernels below are
+# Linux x86_64 only (cloud GPU with an NVIDIA driver for CUDA 12); elsewhere
+# torch is the CPU build and only tests, dry-run and preflight run.
+#
+# Versions are chosen so every CUDA extension has an official prebuilt wheel
+# for this exact torch; nothing is compiled on the training machine:
+#   torch 2.8.0          PyPI build: CUDA 12.8, C++11 ABI, triton 3.4.0
+#   transformers 5.20.2  needs torch >= 2.6; first release with qwen3_5
+#   flash-linear-attention 0.5.2  needs torch >= 2.7, triton >= 3.3
+#   causal-conv1d 1.7.0  prebuilt for torch 2.6-2.10, CUDA 12/13
+#   flash-attn 2.8.3.post2  prebuilt for torch 2.4-2.8, CUDA 12 only
+# torch 2.8 is the only minor version every wheel above supports.
+-r requirements.txt
+torch==2.8.0
+torchvision==0.23.0
+transformers==5.20.2
+peft==0.21.2
+accelerate==1.15.0
+flash-linear-attention==0.5.2
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.11"
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.12"
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp313-cp313-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.13"
+flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3.post2/flash_attn-2.8.3.post2+cu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.11"
+flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3.post2/flash_attn-2.8.3.post2+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.12"
+flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3.post2/flash_attn-2.8.3.post2+cu12torch2.8cxx11abiTRUE-cp313-cp313-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.13"

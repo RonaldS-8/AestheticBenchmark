@@ -1,0 +1,59 @@
+# Example aesthetic-head run (stage 2: human labels, starting from the
+# stage-1 site-rating run). Paths are relative to the repo root.
+schema_version = "1.0"
+route = "head"
+run_name = "head-convnext-swin-human"
+seed = 42
+freeze_backbones = true
+label_sources = ["human_mean"]
+init_from_run = "head-convnext-swin-site"
+
+[views.aesthetic]
+size = 224
+
+[views.aesthetic.backbone]
+model_id = "facebook/convnext-tiny-224"
+revision = "03e404fd168941cfed98f46654680130dd85968b"
+
+[views.technical]
+grid = 7
+patch = 32
+
+[views.technical.backbone]
+model_id = "microsoft/swin-tiny-patch4-window7-224"
+revision = "03e404fd168941cfed98f46654680130dd85968b"
+
+[head]
+hidden_dim = 256
+dropout = 0.1
+
+[loss]
+kind = "plcc_rank"
+rank_weight = 0.3
+
+[data]
+split_manifest = "data/manifests/split-v1.json"
+split_version = "split-v1"
+eval_fingerprint = "7925f174981fbae3c9f63b9e6d5e755b0b7aafebc2d9812154e0d050914a2c19"
+train_samples = "data/manifests/head-train.jsonl"
+val_samples = "data/manifests/head-val.jsonl"
+
+[optim]
+learning_rate = 1e-3
+epochs = 30
+per_device_batch_size = 32
+grad_accum_steps = 1
+warmup_ratio = 0.05
+weight_decay = 0.01
+lr_scheduler = "cosine"
+max_grad_norm = 1.0
+
+[runtime]
+strategy = "single"
+num_gpus = 1
+precision = "bf16"
+attn_implementation = "sdpa"
+gradient_checkpointing = false
+save_steps = 500
+eval_steps = 500
+output_dir = "outputs/head-convnext-swin-human"

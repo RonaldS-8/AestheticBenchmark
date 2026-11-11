@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "run_id": "eva-qwen35-4b-lora-r16-eval",
+  "split": "eval",
+  "ids_fingerprint": "fe56c42616fc076e4d20f52597be60c616beb508de585edd7bdd6b58175211a3",
+  "created_at": "2026-11-09T17:04:51.549959+08:00",
+  "n_items": 407,
+  "n_parsed": 407,
+  "parse_success_rate": 1.0,
+  "metrics": {
+    "aesthetic": {
+      "srcc": 0.8103479212875063,
+      "plcc": 0.8339139850872316,
+      "mae_1_5": 0.17346437346437346
+    },
+    "technical": {
+      "srcc": 0.7643313950268734,
+      "plcc": 0.7889663863217907,
+      "mae_1_5": 0.16560196560196558
+    }
+  },
+  "metric_errors": {},
+  "latency_p50_ms": 1043.9560279992293,
+  "latency_p95_ms": 1098.300133999146
+}

@@ -1,0 +1,17 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+extend-exclude = "^/archive/"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = [".test-tmp", "data", "archive"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ANN"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "--cov=lora_sft --cov-branch --cov-report=term-missing --cov-fail-under=80"

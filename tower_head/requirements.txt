@@ -1,0 +1,12 @@
+# Qwen vision-tower head job. torch / torchvision / transformers / pydantic /
+# pillow equal the main repository's pins (requirements.txt and
+# requirements-train.txt); safetensors and huggingface-hub are the versions
+# transformers 5.20.2 resolves to there. Python 3.11-3.13. No flash-attn:
+# the tower runs with sdpa. Tests run in the main repository's .venv.
+pydantic==2.13.4
+pillow==12.0.0
+torch==2.8.0
+torchvision==0.23.0
+transformers==5.20.2
+safetensors==0.8.0
+huggingface-hub==2.4.0

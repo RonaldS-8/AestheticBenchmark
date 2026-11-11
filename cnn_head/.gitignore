@@ -1,0 +1,8 @@
+# Copied EVA data, downloaded checkpoints and run outputs stay out of git.
+data/
+models/
+runs/
+logs/
+dist/
+.venv/
+sweep.log

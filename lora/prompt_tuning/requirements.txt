@@ -1,0 +1,19 @@
+# Prompt-tuning job: inference only, nothing for training (no peft,
+# accelerate, flash-attn). Versions equal the main repository's
+# requirements.txt / requirements-train.txt, so the model runs exactly as in
+# the LoRA eval. huggingface_hub (weight download) comes with transformers.
+# Python 3.11-3.13. The CUDA kernel below is Linux x86_64 only; elsewhere
+# torch is the CPU build (fine for a smoke test).
+#   torch 2.8.0          PyPI build: CUDA 12.8
+#   transformers 5.20.2  first release with qwen3_5
+#   flash-linear-attention 0.5.2 / causal-conv1d 1.7.0: fast kernels for the
+#   24 Gated DeltaNet layers; without them transformers runs them in pure torch
+pydantic==2.13.4
+pillow==12.0.0
+torch==2.8.0
+torchvision==0.23.0
+transformers==5.20.2
+flash-linear-attention==0.5.2
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.11"
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.12"
+causal-conv1d @ https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0+cu12torch2.8cxx11abiTRUE-cp313-cp313-linux_x86_64.whl ; sys_platform == "linux" and platform_machine == "x86_64" and python_version == "3.13"

@@ -1,0 +1,61 @@
+# Example LoRA SFT run. Paths are relative to the repo root.
+schema_version = "1.0"
+route = "lora_sft"
+run_name = "qwen-4b-lora-r16"
+seed = 42
+prompt_id = "rubric-score@v1"
+chat_template_sha256 = "cc34ae0560a16721608a49c3de9f81380720651c1218f5a1f46ad8d129e487fa"
+max_seq_len = 2048
+
+[base_model]
+model_id = "Qwen/Qwen3-VL-4B-Instruct"
+revision = "03e404fd168941cfed98f46654680130dd85968b"
+
+[preprocess]
+min_pixels = 200704
+max_pixels = 1003520
+
+[data]
+split_manifest = "data/manifests/split-v1.json"
+split_version = "split-v1"
+eval_fingerprint = "7925f174981fbae3c9f63b9e6d5e755b0b7aafebc2d9812154e0d050914a2c19"
+train_samples = "data/manifests/sft-train.jsonl"
+val_samples = "data/manifests/sft-val.jsonl"
+
+[lora]
+r = 16
+alpha = 32
+dropout = 0.05
+target_modules = [
+  "q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",
+]
+freeze_vision = true
+
+[kernels]
+require_fla = false
+require_causal_conv1d = false
+
+[selection]
+metric = "eval_loss"
+min_parse_rate = 0.95
+max_new_tokens = 64
+
+[optim]
+learning_rate = 1e-4
+epochs = 3
+per_device_batch_size = 4
+grad_accum_steps = 4
+warmup_ratio = 0.03
+weight_decay = 0.0
+lr_scheduler = "cosine"
+max_grad_norm = 1.0
+
+[runtime]
+strategy = "single"
+num_gpus = 1
+precision = "bf16"
+attn_implementation = "sdpa"
+gradient_checkpointing = true
+save_steps = 200
+eval_steps = 200
+output_dir = "outputs/qwen-4b-lora-r16"

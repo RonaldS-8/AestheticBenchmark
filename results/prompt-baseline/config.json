@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "scoring": {
+    "schema_version": "1.0",
+    "run_id": "b0-qwen35-4b-tune",
+    "split": "all",
+    "ids_fingerprint": "ba970e3ec514078d0f3919bf0c64bfdcb57d61b6c48a2e619ee2d720f3048b4c",
+    "model": {
+      "model_id": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+    },
+    "adapter": null,
+    "prompt_id": "zero-shot-score@v2",
+    "chat_template_sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+    "preprocess": {
+      "min_pixels": 65536,
+      "max_pixels": 1048576
+    },
+    "max_new_tokens": 64,
+    "device": "cuda"
+  },
+  "tuning_set": {
+    "path": "data/tuning-set.json",
+    "sha256": "e52b3c284022cca555847b1d77f68536c4940c95d64b7b50f10d5573624f6972"
+  },
+  "method": "b0_zero_shot",
+  "runtime": "transformers",
+  "gguf": null
+}

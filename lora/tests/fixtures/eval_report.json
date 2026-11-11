@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "run_id": "b1-rubric-qwen-4b",
+  "eval_fingerprint": "7925f174981fbae3c9f63b9e6d5e755b0b7aafebc2d9812154e0d050914a2c19",
+  "n_items": 800,
+  "n_parsed": 788,
+  "metrics": {
+    "aesthetic": {"srcc": 0.52, "plcc": 0.55, "n": 788},
+    "technical": {"srcc": 0.61, "plcc": 0.63, "n": 788},
+    "overall": {"srcc": 0.57, "plcc": 0.59, "n": 788}
+  },
+  "by_category": {
+    "portrait": {
+      "aesthetic": {"srcc": 0.48, "plcc": 0.50, "n": 210},
+      "technical": {"srcc": 0.60, "plcc": 0.62, "n": 210},
+      "overall": {"srcc": 0.55, "plcc": 0.57, "n": 210}
+    }
+  },
+  "pairwise_agreement": 0.71,
+  "pairwise_min_gap": 1.0,
+  "latency_p50_ms": 1850.0,
+  "latency_p95_ms": 2600.0,
+  "annotator_ceiling": {
+    "aesthetic": {"srcc": 0.72, "plcc": 0.74, "n": 800},
+    "technical": {"srcc": 0.78, "plcc": 0.79, "n": 800},
+    "overall": {"srcc": 0.75, "plcc": 0.77, "n": 800}
+  },
+  "created_at": "2026-11-20T18:00:00+08:00"
+}
